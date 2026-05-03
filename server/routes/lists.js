@@ -136,8 +136,12 @@ router.patch('/listas/:id/estado', authMiddleware, (req, res) => {
     extra = ", completada_por = NULL, fecha_completada = NULL";
   }
 
+  const params = [estado];
+  if (estado === 'COMPLETADA') params.push(req.usuario.usuario_id);
+  if (estado === 'PENDIENTE') params.push(null);
+  params.push(req.params.id);
   db.prepare(`UPDATE listas SET estado = ?, fecha_actualizacion = datetime('now')${extra} WHERE id = ?`)
-    .run(estado, estado === 'COMPLETADA' || estado === 'PENDIENTE' ? req.usuario.usuario_id : null, req.params.id);
+    .run(...params);
 
   res.json({ id: req.params.id, estado });
 });
