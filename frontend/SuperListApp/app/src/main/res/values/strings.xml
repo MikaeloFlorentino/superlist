@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">SuperList</string>
+
+    <!-- Auth -->
+    <string name="login_title">SuperList</string>
+    <string name="login_subtitle">Tu lista de compras familiar</string>
+    <string name="phone_hint">Número de teléfono</string>
+    <string name="send_code">Enviar código</string>
+    <string name="code_hint">Código de 6 dígitos</string>
+    <string name="verify_code">Verificar código</string>
+    <string name="resend_code">Reenviar código</string>
+    <string name="code_sent">Código enviado a %s</string>
+    <string name="setup_profile">Completa tu perfil</string>
+    <string name="name_hint">Tu nombre</string>
+    <string name="save">Guardar</string>
+    <string name="skip">Omitir</string>
+
+    <!-- Familias -->
+    <string name="my_families">Mis Familias</string>
+    <string name="create_family">Crear familia</string>
+    <string name="join_family">Unirme a una familia</string>
+    <string name="family_name_hint">Nombre de la familia</string>
+    <string name="create">Crear</string>
+    <string name="members">Miembros</string>
+    <string name="invite_member">Invitar miembro</string>
+    <string name="invite_phone_hint">Teléfono del invitado</string>
+    <string name="send_invite">Enviar invitación</string>
+    <string name="invitation_code_hint">Código de invitación</string>
+    <string name="join">Unirme</string>
+    <string name="pending_invitations">Invitaciones pendientes</string>
+    <string name="accept">Aceptar</string>
+    <string name="reject">Rechazar</string>
+
+    <!-- Catálogo -->
+    <string name="catalog">Catálogo</string>
+    <string name="add_article">Agregar artículo</string>
+    <string name="article_name_hint">Nombre del artículo</string>
+    <string name="sku_hint">SKU</string>
+    <string name="barcode_hint">Código de barras</string>
+    <string name="search_articles">Buscar artículos…</string>
+    <string name="areas">Áreas</string>
+
+    <!-- Listas -->
+    <string name="shopping_lists">Listas de compras</string>
+    <string name="create_list">Crear lista</string>
+    <string name="list_name_hint">Nombre de la lista</string>
+    <string name="supermarket_hint">Supermercado</string>
+    <string name="add_item">Agregar item</string>
+    <string name="quantity_hint">Cantidad</string>
+    <string name="notes_hint">Notas</string>
+    <string name="pending">Pendiente</string>
+    <string name="in_progress">En curso</string>
+    <string name="completed">Completada</string>
+    <string name="no_items">Sin items</string>
+
+    <!-- Shopping -->
+    <string name="shopping_mode">Modo compra</string>
+    <string name="no_hay">No hay</string>
+    <string name="mark_bought">Marcar comprado</string>
+    <string name="pending_items">Pendientes</string>
+    <string name="resolve">Resolver</string>
+    <string name="move_to_list">Mover a lista</string>
+
+    <!-- History -->
+    <string name="history">Historial</string>
+    <string name="no_history">Sin compras completadas aún</string>
+    <string name="detail">Detalle</string>
+
+    <!-- Common -->
+    <string name="loading">Cargando…</string>
+    <string name="error">Error</string>
+    <string name="retry">Reintentar</string>
+    <string name="logout">Cerrar sesión</string>
+    <string name="confirm">Confirmar</string>
+    <string name="cancel">Cancelar</string>
+    <string name="back">Atrás</string>
+    <string name="empty">Sin datos</string>
+
+    <!-- Messages -->
+    <string name="invitation_sent">Invitación enviada</string>
+    <string name="family_created">Familia creada exitosamente</string>
+    <string name="article_created">Artículo creado</string>
+    <string name="list_created">Lista creada</string>
+    <string name="item_added">Item agregado</string>
+    <string name="item_updated">Item actualizado</string>
+    <string name="phone_error">Ingresa un número válido</string>
+    <string name="code_error">Código incorrecto</string>
+    <string name="network_error">Error de conexión</string>
+</resources>
