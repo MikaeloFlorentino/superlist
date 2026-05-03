@@ -1,6 +1,17 @@
 {
   "name": "superlist",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "private": true,
-  "description": "Shopping list app — simple, local, no servers"
+  "description": "Superlist — app de listas del super con familias y catálogo",
+  "main": "server/index.js",
+  "scripts": {
+    "start": "node server/index.js",
+    "dev": "node --watch server/index.js"
+  },
+  "dependencies": {
+    "express": "^4.21.0",
+    "better-sqlite3": "^11.6.0",
+    "jsonwebtoken": "^9.0.2",
+    "cors": "^2.8.5"
+  }
 }
