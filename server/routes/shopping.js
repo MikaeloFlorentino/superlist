@@ -95,6 +95,19 @@ function ensureListaPendientes(db, familiaId, usuarioId) {
   return lp;
 }
 
+// Shared: add item to pendientes from a lista item
+function addItemToPendientes(db, item, listaId, familiaId, usuarioId) {
+  const lp = ensureListaPendientes(db, familiaId, usuarioId);
+  const pendId = crypto.randomUUID();
+  db.prepare(`
+    INSERT INTO items_pendientes (id, lista_pendiente_id, articulo_id, nombre_manual, cantidad, area_super_id, area_casa_id, lista_origen_id, agregado_por)
+    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
+  `).run(pendId, lp.id, item.articulo_id, item.nombre_manual, item.cantidad, item.area_super_id, item.area_casa_id, listaId, usuarioId);
+  return pendId;
+}
+
+module.exports = { addItemToPendientes };
+
 // POST /api/listas/:id/marcar-no-hay (utility: mark item as NO_HAY AND add to pendientes)
 router.post('/listas/:id/marcar-no-hay', authMiddleware, (req, res) => {
   const db = getDb();
@@ -374,4 +387,5 @@ router.get('/listas/:id/historial', authMiddleware, (req, res) => {
   });
 });
 
+router.addItemToPendientes = addItemToPendientes;
 module.exports = router;

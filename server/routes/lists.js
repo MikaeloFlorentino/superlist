@@ -240,15 +240,24 @@ router.patch('/items/:id/estado', authMiddleware, (req, res) => {
     return res.status(403).json({ error: 'No eres miembro de esta familia' });
   }
 
-  const updates = ["estado = ?", "fecha_actualizacion = datetime('now')"];
-  const params = [estado];
-  if (cantidad_comprada !== undefined) {
-    updates.push('cantidad_comprada = ?');
-    params.push(cantidad_comprada);
-  }
-  params.push(req.params.id);
+  // Use transaction: update item + auto-add to pendientes if NO_HAY
+  const transaction = db.transaction(() => {
+    const updates = ["estado = ?", "fecha_actualizacion = datetime('now')"];
+    const params = [estado];
+    if (cantidad_comprada !== undefined) {
+      updates.push('cantidad_comprada = ?');
+      params.push(cantidad_comprada);
+    }
+    params.push(req.params.id);
+    db.prepare(`UPDATE items_lista SET ${updates.join(', ')} WHERE id = ?`).run(...params);
 
-  db.prepare(`UPDATE items_lista SET ${updates.join(', ')} WHERE id = ?`).run(...params);
+    if (estado === 'NO_HAY') {
+      // Import addItemToPendientes from shopping routes
+      const { addItemToPendientes } = require('./shopping');
+      addItemToPendientes(db, item, item.lista_id, lista.familia_id, req.usuario.usuario_id);
+    }
+  });
+  transaction();
 
   res.json({ id: req.params.id, estado });
 });
